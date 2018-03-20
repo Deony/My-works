@@ -6,14 +6,12 @@ function countDown(mins){
 	var clc=setInterval(function(){
 		if(sec>=0){
 			counter.innerHTML=mins.toString()+':'+sec.toString();
-
 			if(sec<10){
 				counter.innerHTML=mins.toString()+':0'+sec.toString();
-
 			}
 		}
-		else{
 
+		else{
 			if(mins>=1){
 				mins--;
 				sec=60;
@@ -21,11 +19,11 @@ function countDown(mins){
 			else{
 				clearInterval(clc);
 			}
-
 		}
+		
 		sec--;
 
-	},700);
+	}, 700);
 
 }
 countDown(2);
