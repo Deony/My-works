@@ -29,48 +29,39 @@
 
 
 //Find the longest word in a string
-// 		function findLongestWord(str){
-// 			var newStr=str.split(' ',lengthNewStr),
-// 				lengthNewStr=newStr.length,
-// 				i,
-// 				maxStr;
+		// function findLongestWord(str){
+		// 	var newStr=str.split(' ',lengthNewStr),
+		// 		lengthNewStr=newStr.length,
+		// 		i,
+		// 		maxStr=0;
 				
-// 			if(newStr[0].length>newStr[1].length){
-// 				maxStr=newStr[0].length;
-// 			}
-// 			else{
-// 				maxStr=newStr[1].length;
-// 			}
+		// 	for(i=0;i<lengthNewStr;i+=1){
+		// 		if(newStr[i].length>maxStr){
+		// 			maxStr=newStr[i].length;
+		// 		}
 
-// 			for(i=2;i<lengthNewStr;i+=1){
-// 				if(maxStr>=newStr[i].length){
-// 					//maxStr;
-// 				}
-// 				else{
-// 					maxStr=newStr[i].length;
-// 				}
-// 			}
-// 			return maxStr;
-// 		}
+		// 	}
+		// 	return maxStr;
+		// }
 
-// 		console.log(findLongestWord("What if we try a super-long word such as otorhinolaryngology"));
+		// console.log(findLongestWord("What if we try a super-long word such as otorhinolaryngology"));
 
 
-// //Title case a sentence
-		function titleCase(str){
-			str=str.toLowerCase();
-			var newStr2=str.split(' ',lengthNewStr2),
-				lengthNewStr2=newStr2.length,
-				j, n;
+//Title case a sentence
+		// function titleCase(str){
+		// 	str=str.toLowerCase();
+		// 	var newStr2=str.split(' ',lengthNewStr2),
+		// 		lengthNewStr2=newStr2.length,
+		// 		j;
 
-			for(j=0;j<lengthNewStr2;j+=1){
-				newStr2[j]=newStr2[j].charAt(0).toUpperCase()+newStr2[j].slice(1);
-			}
+		// 	for(j=0;j<lengthNewStr2;j+=1){
+		// 		newStr2[j]=newStr2[j].charAt(0).toUpperCase()+newStr2[j].slice(1);
+		// 	}
 
-			return newStr2.join(' ');
-		}
+		// 	return newStr2.join(' ');
+		// }
 
-		console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
+		// console.log(titleCase(" HERE IS MY HANDLE HERE IS MY SPOUT"));
 
 
 
@@ -101,7 +92,6 @@
 			}
 
 			return arr;
-
 		}
 
 		console.log(positive([9, -3, 4, -9, 100]))
