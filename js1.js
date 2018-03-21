@@ -66,32 +66,125 @@
 
 
 //Mean value
-		function mean(arr){
-			var sum=0, i;
+		// function mean(arr){
+		// 	var sum=0, i;
 
-			for(i=0;i<arr.length;i+=1){
-				sum+=arr[i];
-			}
+		// 	for(i=0;i<arr.length;i+=1){
+		// 		sum+=arr[i];
+		// 	}
 
-			return sum/arr.length;
-		}
+		// 	return sum/arr.length;
+		// }
 
-		console.log(mean([1, 4, 5, 9, 7, 7]))
+		// console.log(mean([1, 4, 5, 9, 7, 7]))
 
 
 //Positive numbers. Square root.
-		function positive(arr){
-			var i, b=0;
-			for(i=0;i<arr.length-b;i+=1){
-				if(arr[i]>0){
-					arr[i]=Math.sqrt(arr[i]);
+		// function positive(arr){
+		// 	var i, b=0;
+		// 	for(i=0;i<arr.length-b;i+=1){
+		// 		if(arr[i]>0){
+		// 			arr[i]=Math.sqrt(arr[i]);
+		// 		}
+		// 		else{
+		// 			arr.splice(i,1);
+		// 		}
+		// 	}
+
+		// 	return arr;
+		// }
+
+		// console.log(positive([9, -3, 4, -9, 100]))
+
+
+
+//Return largest numbers in arrays
+		function largestNumbers(arr){
+			var i, j, maxNumber=0, newArr=[];
+
+			for(i=0; i<arr.length; i+=1){
+
+				for(j=0; j<arr[i].length; j+=1){
+
+					if(arr[i][j]>maxNumber){
+						maxNumber=arr[i][j];
+					}
+					
 				}
-				else{
-					arr.splice(i,1);
-				}
+				newArr.push(maxNumber);
+				maxNumber=0;
 			}
 
-			return arr;
+			return newArr;
 		}
 
-		console.log(positive([9, -3, 4, -9, 100]))
+		console.log(largestNumbers([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+
+//Confirm the ending
+		function confirmEnding(str, target) {		  
+		  if ( str.endsWith(target) ) {
+		  	return true;
+		  }
+		  
+		  else{
+		    return str.substring(7) === target;
+		  }
+		  
+		}
+
+		console.log(confirmEnding("Open sesame", "pen"));
+
+
+//Функция, которая считает и выводит количество своих вызовов
+function count () {
+	var counts = 1;
+
+	return function() {
+		return counts++;
+	}
+}
+
+var makeCounter = count();
+
+console.log(makeCounter());
+console.log(makeCounter());
+console.log(makeCounter());
+
+
+//Fibonacci
+function fibonacci(n){
+	var i = 1,
+		a = 1,
+		b = 2,
+		c,
+		arr = [];
+
+	if ( i<=n ) {
+		arr.push(0);
+		i++;
+	}
+
+	for ( ; i <= 3; i+= 1 ) {		
+		arr.push(c = a);
+	}
+
+	if ( i<=4 ) {
+		arr.push(c + a);
+	}
+
+	for ( ; i <= n; i+= 1 ) {
+		c = a + b;
+		arr.push(c);
+		a = b;
+		b = c;
+
+		if ( i===n ) {
+			break;
+		}
+
+	}
+	console.log('Itteration is equal to ' + ++i);
+	return arr;
+}
+console.log( fibonacci(10) );
