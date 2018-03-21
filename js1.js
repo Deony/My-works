@@ -100,50 +100,50 @@
 
 
 //Return largest numbers in arrays
-		// function largestNumbers(arr){
-		// 	var i, j, maxNumber = 0, newArr = [];
+		function largestNumbers(arr){
+			var i, j, maxNumber = 0, newArr = [];
 
-		// 	for (i = 0; i<arr.length; i+=1){
+			for (i = 0; i<arr.length; i+=1){
 
-		// 		for (j=0; j<arr[i].length; j+=1) {
+				for (j=0; j<arr[i].length; j+=1) {
 
-		// 			if (arr[i][j] > maxNumber) {
-		// 				maxNumber = arr[i][j];
-		// 			}
+					if (arr[i][j] > maxNumber) {
+						maxNumber = arr[i][j];
+					}
 					
-		// 		}
-		// 		newArr.push(maxNumber);
-		// 		maxNumber=0;
-		// 	}
+				}
+				newArr.push(maxNumber);
+				maxNumber=0;
+			}
 
-		// 	return newArr;
-		// }
+			return newArr;
+		}
 
-		// console.log(largestNumbers([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+		console.log(largestNumbers([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
 
 
 //Confirm the ending
-		// function confirmEnding (str, target) {
-		// 	return str.substr(str.length - target.length, target.length) === target;
-		// }
+		function confirmEnding (str, target) {
+			return str.substr(str.length - target.length, target.length) === target;
+		}
 
-		// confirmEnding("Open sesame", "same");
+		confirmEnding("Open sesame", "same");
 
 
 //Функция, которая считает и выводит количество своих вызовов
-// function count () {
-// 	var counts = 1;
+function count () {
+	var counts = 1;
 
-// 	return function() {
-// 		return counts++;
-// 	}
-// }
+	return function() {
+		return counts++;
+	}
+}
 
-// var makeCounter = count();
+var makeCounter = count();
 
-// console.log(makeCounter());
-// console.log(makeCounter());
-// console.log(makeCounter());
+console.log(makeCounter());
+console.log(makeCounter());
+console.log(makeCounter());
 
 
 //Fibonacci
