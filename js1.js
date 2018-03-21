@@ -150,13 +150,13 @@ console.log(makeCounter());
 function fibonacci (n) {
 
 	var i, a = 0, b = 1, c, arr = [];
-	arr.push(0,1);
+	arr.push(a,b);
 	
 	for ( i = 3; i <= n; i+= 1){
 		c = a + b;
 		arr.push(c);
 
-		if ( i===n ) {
+		if ( i === n ) {
 			break;
 		}
 
