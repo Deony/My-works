@@ -101,14 +101,14 @@
 
 //Return largest numbers in arrays
 		function largestNumbers(arr){
-			var i, j, maxNumber=0, newArr=[];
+			var i, j, maxNumber = 0, newArr = [];
 
-			for(i=0; i<arr.length; i+=1){
+			for (i = 0; i<arr.length; i+=1){
 
-				for(j=0; j<arr[i].length; j+=1){
+				for (j=0; j<arr[i].length; j+=1) {
 
-					if(arr[i][j]>maxNumber){
-						maxNumber=arr[i][j];
+					if (arr[i][j] > maxNumber) {
+						maxNumber = arr[i][j];
 					}
 					
 				}
@@ -123,18 +123,11 @@
 
 
 //Confirm the ending
-		function confirmEnding(str, target) {		  
-		  if ( str.endsWith(target) ) {
-		  	return true;
-		  }
-		  
-		  else{
-		    return str.substring(7) === target;
-		  }
-		  
+		function confirmEnding (str, target) {
+			return str.substr(str.length - target.length, target.length) === target;
 		}
 
-		console.log(confirmEnding("Open sesame", "pen"));
+		confirmEnding("Open sesame", "same");
 
 
 //Функция, которая считает и выводит количество своих вызовов
