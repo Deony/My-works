@@ -18,12 +18,14 @@ function countDown(mins){
 			}
 			else{
 				clearInterval(clc);
+				alert('FINISHED');
 			}
 		}
 		
 		sec--;
 
-	}, 700);
+	}, 1000);
+
 
 }
 countDown(2);
