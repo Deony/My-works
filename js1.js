@@ -90,39 +90,24 @@
 
 //Mutations
 function mutation(arr) {
-	var str1 = arr[0].toLowerCase(),
+  var str1 = arr[0].toLowerCase(),
         str2 = arr[1].toLowerCase(),
-        i, j,
-        length1 = str1.length,
+        i,
         length2 = str2.length,
-        result,
-        k = 0;
+        result;
   
-  
-   for(j = 0; j < length2; j+=1) {
-    
-    for(i = 0; i < length1; i+=1){
-      result = str2[j].indexOf(str1[i]);
-
-      if(result === 0) {
-      	k++;
-        break;
-    	
-      }    
-
+   for(i = 0; i < length2; i+=1){
+      result = str1.indexOf(str2[i]);
+      console.log('result='+result+' i='+i+' str1='+str1+' str2='+str2);
+      if (result === -1){
+        return false;
+      }
     }
-    
-  }
-  if (k === (length2) ) {
-      		return true;
-      	}
-      	else{
-      		return false;
-      	} 
-  
+
+  return true;  
 }
 
-console.log(mutation(["hello", "Hello"]));
+console.log(mutation(["hello", "neo"]));
 
 
 
