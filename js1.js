@@ -1,139 +1,86 @@
-//3. Дан ul, в нем несколько li. Под ul сделайте кнопку, по нажатию на которую в конец ul будет добавляться новый li с текстом 'пункт'. Сделайте так, чтобы при клике на каждый li, ему в конец добавлялся '!'. Это должно работать и для вновь добавленных li. Задачу решите с помощью делегирования (то есть событие должно быть навешано на ul)
-// var myButton = document.getElementById('myButton'),
-// 	myUl = document.getElementById('myUl'),
-// 	newList, tar;
+// Seek and Destroy
+//----------------------------------------------------------------------
+// You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
 
-// myButton.addEventListener('click', Adding, false);
-// myUl.addEventListener('click', AddLi, false);
+function destroyer(arr) {
+	var size = arguments.length,
+		res, result, i = 1, arg = [];
 
-// function Adding() {
-// 	newList = document.createElement('li');
-// 	newList.textContent = 'item';
-// 	myUl.appendChild(newList);
-// }
+	arg = Array.from(arguments).splice(1);
 
+	res = arr.filter(function(num) {
+		result = arg.indexOf(num);
 
-// function AddLi(event) {
-// 		event.target.textContent += '!';
-// }
+		if (result === -1){
+			return num;
+		}
 
-
-//4. Дан массив с числами. Проверьте, есть ли в нем два одинаковых числа подряд. Если есть - выведите 'да', а если нет - выведите 'нет'
-// function checking(arr) {
-// 	var i, size = arr.length - 1;
-
-// 	for(i = 0; i < size; i+=1) {
-// 		var n = (arr[i]==arr[i+1] ? true : false);
-
-// 		if(n) {
-// 			break;
-// 		}
-
-// 	}
-
-// 	return n;
-// }
-
-// console.log(checking([1,2,5,7,9,10,5]));
-
-
-
-//or
-// var arr = [1, 5, 10, 6, 6, 8, 20], result;
-
-//     result = 'no';
-//     for(i = 0; i < arr.length; i+=1) {
-//       if(i > 0 && arr[i] === arr[i - 1]){
-//       result = 'yes';
-//       break;
-//     } 
-//   }
-//   console.log(result);
-
-
-
-// //5. Сделайте функцию getDigitsSum (digit - это цифра), которая параметром принимает целое число и возвращает сумму его цифр.
-// function getDigitsSum(digit) {
-// 	var string = digit.toString(),
-// 		a = string.split(""),
-// 		i,
-// 		sum = 0,
-// 		size = string.length;
-
-
-// 	for(i = 0; i < size; i+= 1) {
-// 		sum+= Number(a[i]);
-// 	}
-
-// 	return sum;
-// }
-
-// console.log(getDigitsSum(115));
-
-
-//or
-// function getDigitsSum(num){
-//  var strNum = String(num),
-//  	i,
-//  	sum = 0,
-//  	size = strNum.length;
-
-//  for(i = 0; i < size; i+=1){
-//   sum += +strNum[i];
-//  }
-//  return sum;
-// }
-
-// getDigitsSum(52);
-
-
-
-//Mutations
-function mutation(arr) {
-  var str1 = arr[0].toLowerCase(),
-        str2 = arr[1].toLowerCase(),
-        i,
-        length2 = str2.length,
-        result;
-  
-   for(i = 0; i < length2; i+=1){
-      result = str1.indexOf(str2[i]);
-      console.log('result='+result+' i='+i+' str1='+str1+' str2='+str2);
-      if (result === -1){
-        return false;
-      }
-    }
-
-  return true;  
-}
-
-console.log(mutation(["hello", "neo"]));
-
-
-
-//Falsy Bouncer
-function bouncer(arr) {
-	var val = arr.filter(function(num) {
-		return num!==null && num!==false && num!=='' && num!==undefined && num!==0 && (!isNaN(num) || typeof(num)=='string');
 	});
 
-	return val;
+	return res;
 }
 
-bouncer([7, "ate", "", false, 9]);
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
 
 
 
-//Everything Be True
-function truthCheck(collection, pre) {
-	for(i=0; i<collection.length;i+=1){
-		console.log(collection[i][pre]);
-		if(pre in collection[i] === false || collection[i][pre] === 0 || collection[i][pre] === null || collection[i][pre] === '' || collection[i][pre] === undefined) {
-			return false;
-		}		
+// Where do I belong
+// --------------------------------------------------------------------
+// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+
+function getIndexToIns(arr, num) {
+
+arr.sort(function(a, b) {
+	return a - b;
+});
+
+	var i,
+		size = arr.length,
+		min, max,
+		result;
+
+	for(i = 0; i < size; i += 1) {
+		if(arr[i] < num && arr.indexOf(arr[i] === size-1)) {
+			result = arr.indexOf(arr[i]) + 1;
+		}
+		else if(arr[i] < num) {
+			result = size + 1;
+		}
+		else if(arr[i] === num) {
+			result = arr.indexOf(arr[i]);
+			break;
+		}
+		else if(arr[i] > num) {
+			result = arr.indexOf(arr[i]);
+			break;
+		}
 	}
-	return true;
+
+	return result;
 
 }
 
-console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age"));
+console.log(getIndexToIns([2, 5, 10], 15));
+
+
+// Sum All Numbers in a Range
+// -------------------------------------------------------------------
+// We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
+
+function sumAll(arr) {
+	var min = Math.min(arr[0], arr[1]),
+		max = Math.max(arr[0], arr[1]),
+		result;
+
+	for(i = min+1; i < max; i += 1) {
+		arr.push(i);
+	}
+
+	result = arr.reduce(function(sum, num) {
+		return sum + num;
+	});
+	console.log(arr);
+	return result;
+}
+
+console.log(sumAll([5, 10]));
